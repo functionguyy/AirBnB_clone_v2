@@ -13,7 +13,7 @@ class FileStorage:
         if cls: 
             cls_type = {}
             for key, value in FileStorage.__objects:
-                if isinstance(value, cls):
+                if type(value) == cls:
                     cls_type[key] = value
             return cls_type
 
