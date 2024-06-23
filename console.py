@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/home/functionguyy/myenv/bin/python3
 """ Console Module """
 import cmd
 import sys
@@ -151,7 +151,8 @@ class HBNBCommand(cmd.Cmd):
 
         new_instance = HBNBCommand.classes[cls]()
         new_instance.__dict__.update(**parameters)
-        storage.save()
+        new_instance.save()
+        # storage.save()
         print(new_instance.id)
 
     def help_create(self):
@@ -236,11 +237,11 @@ class HBNBCommand(cmd.Cmd):
             if args not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all(args).items():
                 if k.split('.')[0] == args:
                     print_list.append(str(v))
         else:
-            for k, v in storage._FileStorage__objects.items():
+            for k, v in storage.all().items():
                 print_list.append(str(v))
 
         print(print_list)
