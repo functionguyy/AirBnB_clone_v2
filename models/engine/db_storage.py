@@ -47,7 +47,6 @@ class DBStorage:
         if cls is not None:
             if isinstance(cls, str):
                 cls = self.classes.get(cls)
-            print(f"Mapped class: {cls}")
             query_list.extend(self.__session.query(cls).all())
         else:
             for cls in self.classes.values():
