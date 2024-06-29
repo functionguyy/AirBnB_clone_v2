@@ -1,4 +1,4 @@
-#!/home/functionguyy/myenv/bin/python3
+#!/usr/bin/python3
 """This module defines a class to manage database storage for hbnb clone"""
 from sqlalchemy import create_engine
 from os import getenv
@@ -21,7 +21,7 @@ class DBStorage:
 
     classes = {
                'User': User, 'State': State, 'Amenity': Amenity,
-               'Place': Place, 'Review': Review
+               'Place': Place, 'Review': Review, 'City': City
             }
 
 
