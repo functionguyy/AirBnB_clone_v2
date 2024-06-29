@@ -36,7 +36,7 @@ class DBStorage:
                 echo=True)
 
         if getenv('HBNB_ENV') == 'test':
-            Base.metadata.drop_all()
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """ query on the current database session all objects depending on the
