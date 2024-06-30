@@ -49,7 +49,11 @@ class DBStorage:
             query_list.extend(self.__session.query(cls).all())
         else:
             for cls in self.classes.values():
-                query_list.extend(self.__session.query(cls).all())
+                try:
+                    print("I was here {}".format(cls))
+                    query_list.extend(self.__session.query(cls).all())
+                except:
+                    continue
 
         for obj in query_list:
             obj_dict[obj.__class__.__name__ + '.' + obj.id] = obj
