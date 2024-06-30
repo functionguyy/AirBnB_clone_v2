@@ -50,7 +50,6 @@ class DBStorage:
         else:
             for cls in self.classes.values():
                 try:
-                    print("I was here {}".format(cls))
                     query_list.extend(self.__session.query(cls).all())
                 except:
                     continue
